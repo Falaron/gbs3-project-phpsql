@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Esports Profile</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    #profile-container {
+      background-color: #000;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    #header {
+      text-align: center;
+      padding: 20px;
+      background-color: #000000;
+      color: #fff;
+    }
+
+    #player-info,
+    #about-me,
+    #games,
+    #skills,
+    #footer, section {
+        padding: 20px;
+        max-width: 1100px;
+        width: calc(100% - 40px);
+        margin: auto;
+    }
+
+    #about-me,
+    #games,
+    #skills,
+    #footer {
+        border-color: transparent transparent #ffffffff transparent;
+        border-width: 0px 0px 2px 0px;
+        border-style: none none solid none;
+    }
+
+    #player-section {
+        margin-right: 20px;
+        max-width: 1100px;
+        width: 100%;
+        margin: 0px;
+    }
+    .player-image {
+        height: 322px;
+        margin: 25px 0;
+    }
+    .player-image img {
+        width: 100%;
+        height: 100%;
+        border-radius: 24px 24px 24px 24px;
+        object-fit: cover;
+    }
+    h1 {
+        font-size: 4rem;
+        font-weight: bold;
+    }
+    .best-rank {
+        font-size: 2rem;
+    }
+
+    #games,
+    #skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .game-item,
+    .skill-item {
+      flex-basis: calc(50% - 10px);
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+
+    #footer {
+      text-align: center;
+      background-color: #000000;
+    }
+
+    #social-links a {
+      color: #ffffff;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    #social-links a:hover {
+      text-decoration: underline;
+    }
+    
+
+
+    @media screen and (orientation:portrait){
+       .item {
+        flex-basis: 100%;
+        padding: 0 8px;
+       } 
+    }
+  </style>
+</head>
+<body>
+  <div id="profile-container">
+    <div id="header">
+      <h1>Esports Profile</h1>
+    </div>
+
+    <div id="player-info">
+      <div id="player-section">
+        <h1>John 'Enigma' Doe</h1>
+        <div class="best-rank">12th Super Smash Bros. Ultimate</div>
+        <div class="player-image">
+            <img src="player-image.jpg" alt="Player Image">
+        </div>
+      </div>
+      <div id="about-me">
+        <h2>About Me</h2>
+        <p>John 'Enigma' Doe is a highly skilled professional esports athlete, renowned worldwide for his strategic finesse and remarkable versatility in various online games. He possesses an impressive gaming experience of more than 6 years in the international esports arena.</p>
+      </div>
+    </div>
+
+    <section>
+        <h2>Ranking</h2>
+        <div id="games">
+        
+        <div class="game-item item">
+            <strong>Super Smash Bros. Ultimate</strong>
+            <em>12th</em>
+        </div>
+        <div class="game-item item">
+            <strong>Super Smash Bros. Ultimate</strong>
+            <em>12th</em>
+        </div>
+        <div class="game-item item">
+            <strong>Super Smash Bros. Ultimate</strong>
+            <em>12th</em>
+        </div>
+        <div class="game-item item">
+            <strong>Super Smash Bros. Ultimate</strong>
+            <em>12th</em>
+        </div>
+        <div class="game-item item">
+            <strong>Super Smash Bros. Ultimate</strong>
+            <em>12th</em>
+        </div>
+        <div class="game-item item">
+            <strong>Super Smash Bros. Ultimate</strong>
+            <em>12th</em>
+        </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Skills</h2>
+        <div id="skills">
+            <div class="skill-item item">Strong team player with excellent communication skills</div>
+            <div class="skill-item item">Consistently maintains top rank in global player boards.</div>
+            <div class="skill-item item">Ability to perform under high-stress conditions</div>
+            <div class="skill-item item">Exceptional skills on retro games, effortlessly mastering its intricacies.</div>
+        </div>
+    </section>
+
+    <div id="footer">
+      <div id="social-links">
+        <a href="https://twitter.com" target="_blank">Twitter</a>
+        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+ 
