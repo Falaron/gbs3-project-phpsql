@@ -23,6 +23,6 @@
 
     <h1>Hello G.BS3</h1>
     <p><?php echo "Arthur is a goat!" ?></p>
-    <p><?php echo $data['first_name	']; ?></p>
+    <p><?php echo $data['first_name']; ?></p>
   </body>
 </html>
