@@ -15,7 +15,7 @@
 
   <body>
     <?php
-      $sql = "SELECT * FROM table_test";
+      $sql = "SELECT * FROM managers";
       $pre = $pdo->prepare($sql);
       $pre->execute();
       $data = $pre->fetch(PDO::FETCH_ASSOC);
@@ -23,6 +23,6 @@
 
     <h1>Hello world!</h1>
     <p><?php echo "It works! Let's begin..." ?></p>
-    <p><?php echo $data['test_num']; ?></p>
+    <p><?php echo $data['first_name	']; ?></p>
   </body>
 </html>
