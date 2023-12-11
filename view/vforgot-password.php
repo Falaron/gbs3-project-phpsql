@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" id="index">
   <head>
-    <title>Team Roster Pro - Login</title>
+    <title>Team Roster Pro - Forgot Password</title>
     <meta name="description" content="Login to lead your Esport team now.">
     <meta charset="utf-8">
     <!-- Let browser know website is optimized for mobile -->
@@ -15,23 +15,19 @@
 
   <body>
     <div id="header">
-    <h1>Esports Profile</h1>
+      <h1>Esports Profile</h1>
     </div>
 
     <div id="form-container">
-      <h2>Login</h2>
-      <form id="login-form" action="#" method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
+      <h2>Forgot Password</h2>
+      <form id="forgot-password-form" action="#" method="post">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-
-        <button type="submit">Login</button>
+        <button type="submit">Reset Password</button>
       </form>
 
-      <a href="signup.html" id="signup-link">Don't have an account? Sign Up</a>
-      <a href="forgot-password.html" id="forgot-password">Forgot password?</a>
+      <a href="login.html" id="login-link">Remembered your password? Login</a>
     </div>
   </body>
 </html>
