@@ -18,24 +18,6 @@ body {
     width: 100%;
   }
 
-  #form-container {
-    background-color: #000;
-    border-radius: 8px;
-    overflow: hidden;
-    max-width: 400px;
-    width: calc(100% - 40px);
-    margin: auto;
-    text-align: center;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-  }
-
-  #form-container h2 {
-    padding: 20px;
-    background-color: #000000;
-    color: #fff;
-    margin: 0;
-  }
-
   #login-form {
     padding: 20px;
   }
@@ -67,17 +49,6 @@ body {
     display: block;
   }
 
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #000;
-    color: #fff;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-  }
 
   #player-info,
   #games,
@@ -147,26 +118,6 @@ body {
     margin: 0 10px;
   }
 
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #000;
-    color: #fff;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-  }
-
-  #header {
-    text-align: center;
-    padding: 20px;
-    background-color: #000000;
-    color: #fff;
-    width: 100%;
-  }
-
   #form-container {
     background-color: #000;
     border-radius: 8px;
@@ -217,14 +168,6 @@ body {
     display: block;
   }
 
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #000;
-    color: #fff;
-    margin: 0;
-    padding: 0;
-  }
-
   #profile-container {
     background-color: #000;
     border-radius: 8px;
@@ -233,13 +176,6 @@ body {
     flex-direction: column;
     align-items: center;
     height: 100vh;
-  }
-
-  #header {
-    text-align: center;
-    padding: 20px;
-    background-color: #000000;
-    color: #fff;
   }
 
   #player-info,
@@ -322,24 +258,6 @@ body {
     } 
  }
     width: 100%;
-  }
-
-  #form-container {
-    background-color: #000;
-    border-radius: 8px;
-    overflow: hidden;
-    max-width: 400px;
-    width: calc(100% - 40px);
-    margin: auto;
-    text-align: center;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-  }
-
-  #form-container h2 {
-    padding: 20px;
-    background-color: #000000;
-    color: #fff;
-    margin: 0;
   }
 
   #signup-form {
