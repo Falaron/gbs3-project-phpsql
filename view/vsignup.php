@@ -33,7 +33,7 @@
       <button type="submit">Sign Up</button>
     </form>
 
-    <a href="login.html" id="login-link">Already have an account? Login</a>
+    <a href="login.php" id="login-link">Already have an account? Login</a>
   </div>
 </body>
 </html>

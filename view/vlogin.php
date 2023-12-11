@@ -30,8 +30,8 @@
         <button type="submit">Login</button>
       </form>
 
-      <a href="signup.html" id="signup-link">Don't have an account? Sign Up</a>
-      <a href="forgot-password.html" id="forgot-password">Forgot password?</a>
+      <a href="signup.php" id="signup-link">Don't have an account? Sign Up</a>
+      <a href="forgot-password.php" id="forgot-password">Forgot password?</a>
     </div>
   </body>
 </html>

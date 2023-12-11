@@ -17,7 +17,7 @@
   <div id="header">
     <h1>Esports Profile</h1>
   </div>
-  <div><a href="profile.html">Go to profile</a></div>
+  <div><a href="esport-profile.php">Go to profile</a></div>
   <form>
     <div id="player-info">
       <h2>Player Information</h2>

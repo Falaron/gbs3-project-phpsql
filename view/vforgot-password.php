@@ -27,7 +27,7 @@
         <button type="submit">Reset Password</button>
       </form>
 
-      <a href="login.html" id="login-link">Remembered your password? Login</a>
+      <a href="login.php" id="login-link">Remembered your password? Login</a>
     </div>
   </body>
 </html>
