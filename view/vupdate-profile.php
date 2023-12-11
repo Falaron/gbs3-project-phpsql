@@ -1,92 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Update Profile</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #000;
-      color: #fff;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      height: 100vh;
-    }
+<html lang="en" dir="ltr" id="index">
+  <head>
+    <title>Team Roster Pro - Login</title>
+    <meta name="description" content="Login to lead your Esport team now.">
+    <meta charset="utf-8">
+    <!-- Let browser know website is optimized for mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Disable the cache to avoid versioning problems -->
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+  </head>
 
-    #player-info,
-    #games,
-    #skills {
-      padding: 20px;
-      max-width: 1100px;
-      width: calc(100% - 40px);
-      margin: 20px auto;
-      background-color: #000;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-    }
-
-    h2,
-    h3,
-    label {
-      color: #fff;
-    }
-
-    .remove-btn {
-      margin-left: 8px;
-      background-color: #ff0000;
-    }
-
-    #skills-container {
-      margin-bottom: 16px;
-    }
-
-    .skill-input {
-      margin-bottom: 8px;
-    }
-
-    .game-input,
-    .skill-input {
-      position: relative;
-    }
-
-    input[type="text"],
-    input[type="file"] {
-      width: calc(100% - 22px);
-      padding: 10px;
-      margin: 8px 0;
-      box-sizing: border-box;
-    }
-
-    button {
-      background-color: #4caf50;
-      color: white;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #45a049;
-    }
-
-    .remove-btn {
-      position: absolute;
-      top: 0;
-      right: 0;
-    }
-    a {
-      color: #ffffff;
-      margin: 0 10px;
-    }
-  </style>
-</head>
-<body>
+  <body>
   <div id="header">
     <h1>Esports Profile</h1>
   </div>
@@ -211,4 +138,3 @@
   </script>
 </body>
 </html>
- 
