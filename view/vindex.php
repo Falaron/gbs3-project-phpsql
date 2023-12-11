@@ -22,7 +22,7 @@
     ?>
 
     <h1>Hello world!</h1>
-    <p><?php echo "It works! Let's begin..." ?></p>
+    <p><?php echo "Arthur is a goat!" ?></p>
     <p><?php echo $data['first_name	']; ?></p>
   </body>
 </html>
