@@ -14,17 +14,28 @@
   </head>
 
   <body>
-    <!-- <?php
-      //$sql = "SELECT * FROM managers";
-      //$pre = $pdo->prepare($sql);
-      //$pre->execute();
-      //$data = $pre->fetch(PDO::FETCH_ASSOC);
+    <?php
+      $sql = "SELECT * FROM PLAYER";
+      $pre = $pdo->prepare($sql);
+      $pre->execute();
+      $data = $pre->fetchAll(PDO::FETCH_ASSOC);
       ?>
-      <p><?php //echo $data['first_name']; ?></p> -->
 
     <div id="profile-container">
       <div id="header">
         <h1>Team list</h1>
+      </div>
+      
+      <?php
+      foreach($data as $dataPlayer){ ?>
+        <div>
+          <h2><?php echo $dataPlayer['player_name']; ?></h2>
+          <p><?php echo $dataPlayer['player_bio']; ?></p>
+          <a href="<?php echo $dataPlayer['twitter']; ?>"><?php echo $dataPlayer['twitter']; ?></a>
+        </div>
+      <?php }
+      ?>
     </div>
+
   </body>
 </html>
