@@ -12,17 +12,25 @@
     <meta http-equiv="cache-control" content="no-cache" />
     <meta http-equiv="expires" content="0" />
   </head>
-
   <body>
   <div id="header">
     <h1>Esports Profile</h1>
   </div>
-  <div><a href="esport-profile.php">Go to profile</a></div>
-  <form>
-    <div id="player-info">
+  <div><a href="profile.html">Go to profile</a></div>
+  <form method="POST" action="" enctype="multipart/form-data" onsubmit="copyContent();" >
+    <div id="update-player-info">
       <h2>Player Information</h2>
       <label for="player-name">Player Name:</label>
       <input type="text" id="player-name" name="player-name" required value="John 'Enigma' Doe">
+
+      <label for="player-bio">Player Bio:</label>
+      <textarea type="text" placeholder="Required Field" required
+        class="form-control" id="player-bio"
+        rows="3" cols="150" wrap="off"
+        style="overflow: hidden;">John 'Enigma' Doe is a highly skilled professional esports athlete, renowned worldwide for his strategic finesse and remarkable versatility in various online games.
+He possesses an impressive gaming experience of more than 6 years in the international esports arena.
+      </textarea>
+      <input type="hidden" id="hidden-player-bio" name="player-bio" value="John 'Enigma' Doe is a highly skilled professional esports athlete, renowned worldwide for his strategic finesse and remarkable versatility in various online games. He possesses an impressive gaming experience of more than 6 years in the international esports arena."></input>
 
       <label for="player-image">Player Image:</label>
       <input type="file" id="player-image" name="player-image">
@@ -34,13 +42,14 @@
       <input type="text" id="linkedin" name="linkedin" value="https://linkedin.com">
     </div>
 
-    <div id="games">
+    <div id="update-games">
       <h3>Games</h3>
       <div id="games-container">
         <!-- Initial game input field -->
         <div class="game-input">
           <label for="game1">Game 1:</label>
-          <input type="text" class="game" name="games[]" required value="Super Smash Bros. Ultimate">
+          <input type="text" class="game" name="games['name'][]" required value="Super Smash Bros. Ultimate">
+          <input type="text" class="rank" name="games['rank'][]" value="12">
           <!-- Remove button is disabled when there is only one game -->
           <button type="button" class="remove-btn" onclick="removeGame(this)" disabled>Remove</button>
         </div>
@@ -48,7 +57,7 @@
       <button type="button" onclick="addGame()">Add Game</button>
     </div>
 
-    <div id="skills">
+    <div id="update-skills">
       <h3>Skills</h3>
       <div id="skills-container">
         <!-- Initial skill input field -->
@@ -61,15 +70,10 @@
       </div>
       <button type="button" onclick="addSkill()">Add Skill</button>
     </div>
-
-    <!-- Your existing HTML code here -->
-
     <button type="submit">Save Profile</button>
   </form>
 
   <script>
-    // Your existing JavaScript code here
-
     function addGame() {
       const gamesContainer = document.getElementById('games-container');
       const newGameInput = document.createElement('div');
@@ -77,12 +81,13 @@
       const newGameNumber = gamesContainer.children.length + 1;
       newGameInput.innerHTML = `
         <label for="game${newGameNumber}">Game ${newGameNumber}:</label>
-        <input type="text" class="game" name="games[]" required>
+        <input type="text" class="game" name="games['name'][]" required>
+        <input type="text" class="rank" name="games['rank'][]" >
         <button type="button" class="remove-btn" onclick="removeGame(this)">Remove</button>
       `;
       gamesContainer.appendChild(newGameInput);
 
-      // Enable the Remove button in the existing game input
+      // Enable the remove button in the existing game input
       const existingGameInput = gamesContainer.querySelector('.game-input');
       if (existingGameInput) {
         const removeBtn = existingGameInput.querySelector('.remove-btn');
@@ -95,7 +100,7 @@
       const gameInput = button.parentNode;
       gamesContainer.removeChild(gameInput);
 
-      // Disable the Remove button if there is only one game
+      // Disable the remove button if there is only one game
       const remainingGameInputs = gamesContainer.children.length;
       if (remainingGameInputs === 1) {
         const removeBtn = gamesContainer.querySelector('.remove-btn');
@@ -115,7 +120,7 @@
       `;
       skillsContainer.appendChild(newSkillInput);
 
-      // Enable the Remove button in the existing skill input
+      // Enable the remove button in the existing skill input
       const existingSkillInput = skillsContainer.querySelector('.skill-input');
       if (existingSkillInput) {
         const removeBtn = existingSkillInput.querySelector('.remove-btn');
@@ -128,13 +133,26 @@
       const skillInput = button.parentNode;
       skillsContainer.removeChild(skillInput);
 
-      // Disable the Remove button if there is only one skill
+      // Disable the remove button if there is only one skill
       const remainingSkillInputs = skillsContainer.children.length;
       if (remainingSkillInputs === 1) {
         const removeBtn = skillsContainer.querySelector('.remove-btn');
         removeBtn.setAttribute('disabled', 'disabled');
       }
     }
+
+    function copyContent() {
+      // Get the content from the textarea
+      var bioTextarea = document.getElementById('player-bio');
+      var bioHiddenInput = document.getElementById('hidden-player-bio');
+
+      // Set the value of the hidden input to the textarea content
+      bioHiddenInput.value = bioTextarea.value;
+    }
+
+    // Trigger copyContent when the textarea loses focus
+    document.getElementById('player-bio').addEventListener('blur', copyContent);
   </script>
 </body>
+  
 </html>
