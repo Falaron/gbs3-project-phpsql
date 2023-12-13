@@ -16,7 +16,7 @@
   <div id="header">
     <h1>Esports Profile</h1>
   </div>
-  <div><a href="profile.php">Go to profile</a></div>
+  <div><a href="esport-profile.php">Go to profile</a></div>
   <form method="POST" action="" enctype="multipart/form-data" onsubmit="copyContent();" >
     <div id="update-player-info">
       <h2>Player Information</h2>
