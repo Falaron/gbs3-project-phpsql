@@ -19,7 +19,7 @@
       $pre = $pdo->prepare($sql);
       $pre->execute();
       $data = $pre->fetchAll(PDO::FETCH_ASSOC);
-      ?>
+    ?>
 
     <!-- NAVBAR -->
     <?php require ('assets/parts/navbar.php');?>

@@ -36,7 +36,7 @@ if(empty($emailErr) && empty($passwordErr)){
         var_dump($_SESSION);
         $_SESSION['user'] = $user; // si on veut acceder à user_id on dit / $_SESSION['user']['user_id'] = $display / par exemple
         $_SESSION['login'] = true;
-        $_SESSION['role'] = $user['role']; // getting the role of the connected user (0 for none and 1 for admin)
+        $_SESSION['role'] = $user['manager_role']; // getting the role of the connected user (0 for none and 1 for admin)
     }
     header('Location:../index.php');
 }
