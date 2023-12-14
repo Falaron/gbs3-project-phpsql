@@ -17,6 +17,7 @@
         <!-- changing links according to if your are logged in, out, admin -->
         <?php if(isset($_SESSION['login']) && !$_SESSION['login']) {?>
           <li><a href='login.php'>Login</a></li>
+          <li><a href='signup.php'>Signup</a></li>
         <?php }
         elseif (isset($_SESSION['login']) && $_SESSION['login'] == true && $_SESSION['role'] == 1) { ?>
             <li><a href='#'>Admin Panel</a></li>
@@ -24,6 +25,7 @@
         if (isset($_SESSION['login']) && $_SESSION['login'] == true) { ?>
             <li><a href='config/logout.php'>Logout</a></li>
           <?php } ?>
+        
 
         <li><span> <?php echo (isset($_SESSION['login']) && $_SESSION['login'] == true) ? "Hello ".$hello : 'You are logged out'; ?> </span></li>  
       </ul>
