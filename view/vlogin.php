@@ -21,7 +21,7 @@
     <div id="form-container">
       <h2>Login</h2>
       <form id="login-form" method="post" action="config/login.php">
-        <label for="e">Mail:</label>
+        <label for="email">Mail:</label>
         <input type="email" name="email" id="email" required>
 
         <label for="password">Password:</label>
