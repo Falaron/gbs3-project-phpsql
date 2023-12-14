@@ -47,46 +47,11 @@
         </div>
       </div>
 
-      <section>
-          <h2>Ranking</h2>
-          <div id="games">
-          
-          <div class="game-item item">
-              <strong>Super Smash Bros. Ultimate</strong>
-              <em>12th</em>
-          </div>
-          <div class="game-item item">
-              <strong>Super Smash Bros. Ultimate</strong>
-              <em>12th</em>
-          </div>
-          <div class="game-item item">
-              <strong>Super Smash Bros. Ultimate</strong>
-              <em>12th</em>
-          </div>
-          <div class="game-item item">
-              <strong>Super Smash Bros. Ultimate</strong>
-              <em>12th</em>
-          </div>
-          <div class="game-item item">
-              <strong>Super Smash Bros. Ultimate</strong>
-              <em>12th</em>
-          </div>
-          <div class="game-item item">
-              <strong>Super Smash Bros. Ultimate</strong>
-              <em>12th</em>
-          </div>
-          </div>
-      </section>
+      <!-- RANKING SECTION -->
+      <?php require ('assets/parts/show-games.php');?>
 
-      <section>
-          <h2>Skills</h2>
-          <div id="skills">
-              <div class="skill-item item">Strong team player with excellent communication skills</div>
-              <div class="skill-item item">Consistently maintains top rank in global player boards.</div>
-              <div class="skill-item item">Ability to perform under high-stress conditions</div>
-              <div class="skill-item item">Exceptional skills on retro games, effortlessly mastering its intricacies.</div>
-          </div>
-      </section>
+      <!-- SKILLS SECTION -->
+      <?php require ('assets/parts/show-skills.php');?>
 
       <div id="footer">
         <div id="social-links">
