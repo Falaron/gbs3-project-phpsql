@@ -20,14 +20,14 @@
 
     <div id="form-container">
       <h2>Login</h2>
-      <form id="login-form" action="#" method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
+      <form id="login-form" method="post" action="config/login.php">
+        <label for="e">Mail:</label>
+        <input type="email" name="email" id="email" required>
 
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
+        <input type="password" name="password" id="password" required>
 
-        <button type="submit">Login</button>
+        <button type="submit" value="login">Login</button>
       </form>
 
       <a href="signup.php" id="signup-link">Don't have an account? Sign Up</a>

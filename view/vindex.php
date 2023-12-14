@@ -21,6 +21,9 @@
       $data = $pre->fetchAll(PDO::FETCH_ASSOC);
       ?>
 
+    <!-- NAVBAR -->
+    <?php require ('assets/parts/navbar.php');?>
+
     <div id="profile-container">
       <div id="header">
         <h1>Team list</h1>

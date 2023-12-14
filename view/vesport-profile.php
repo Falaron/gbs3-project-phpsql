@@ -14,6 +14,9 @@
   </head>
 
   <body>
+    <!-- NAVBAR -->
+    <?php require ('assets/parts/navbar.php');?>
+    
     <div id="profile-container">
       <div id="header">
         <h1>Esports Profile</h1>
