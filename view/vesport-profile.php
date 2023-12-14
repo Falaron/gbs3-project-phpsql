@@ -14,8 +14,19 @@
   </head>
 
   <body>
-    <!-- NAVBAR -->
-    <?php require ('assets/parts/navbar.php');?>
+      <!-- NAVBAR -->
+      <?php require ('assets/parts/navbar.php');?>
+  <?php
+  
+
+      $pageid = $_GET['id'];
+
+      $sql = "SELECT * FROM PLAYER WHERE ID = $pageid";
+      $pre = $pdo->prepare($sql);
+      $pre->execute();
+      $data = $pre->fetch(PDO::FETCH_ASSOC);
+    ?>
+    
     
     <div id="profile-container">
       <div id="header">
@@ -24,15 +35,15 @@
 
       <div id="player-info">
         <div id="player-section">
-          <h1>John 'Enigma' Doe</h1>
+        <h2><?php echo $data['player_name']; ?></h2>
           <div class="best-rank">12th Super Smash Bros. Ultimate</div>
           <div class="player-image">
-              <img src="assets/img/player-image.jpg" alt="Player Image">
+          <img src="<?php echo $data['profilepicture']; ?>" alt="Photo du joueur"width="150" height="220">
           </div>
         </div>
         <div id="about-me">
           <h2>About Me</h2>
-          <p>John 'Enigma' Doe is a highly skilled professional esports athlete, renowned worldwide for his strategic finesse and remarkable versatility in various online games. He possesses an impressive gaming experience of more than 6 years in the international esports arena.</p>
+          <p><?php echo $data['player_bio']; ?></p>
         </div>
       </div>
 
@@ -79,8 +90,8 @@
 
       <div id="footer">
         <div id="social-links">
-          <a href="https://twitter.com" target="_blank">Twitter</a>
-          <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+        <p>Twitter : <a href="https://twitter.com/<?php echo $data['twitter']; ?>" target="_blank"><?php echo $data['twitter']; ?></a></p>
+        <p>LinkedIn : <?php echo $data['linked_In']; ?></p>
         </div>
       </div>
     </div>

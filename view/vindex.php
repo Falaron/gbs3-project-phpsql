@@ -37,7 +37,8 @@
           <img src="<?php echo $dataPlayer['profilepicture']; ?>" alt="Photo du joueur"width="150" height="220">
           <p>Twitter : <a href="https://twitter.com/<?php echo $dataPlayer['twitter']; ?>" target="_blank"><?php echo $dataPlayer['twitter']; ?></a></p>
           <p>LinkedIn : <?php echo $dataPlayer['linked_In']; ?></p>
-        </div>
+
+          <a href="esport-profile.php?id=<?php echo $dataPlayer['ID'];?>">See my profile.</a>
       <?php }
       ?>
     </div>
