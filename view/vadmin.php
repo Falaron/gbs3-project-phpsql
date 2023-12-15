@@ -111,34 +111,33 @@
                     </div>
                     <div>
                       <div>
-                      <form action="config/edit_player.php?id=<?php echo $playerInfos['ID'] ?>" method="POST">
-                          <div>
-                          <?php foreach($playerInfos as $playerKey => $playerInfo){
-                            if(isImage($playerInfo) == true){ ?>
-                              <div>
-                                <div>
-                                  <div>
-                                      <span>File</span>
-                                      <input type="file" name=<?php echo $playerKey ?>>
-                                  </div>
-                                  <div>
-                                      <input type="text" name=<?php echo $playerKey ?> placeholder=<?php echo "'$playerKey'" ?>>
-                                  </div>
-                                </div>
-                              </div>
-                          <?php } else { 
-                            if($playerKey == "ID") continue; ?>
-                                <div>
-                                  <div class="input-field col s12">
-                                    <label for="name"><?php echo $playerKey ?></label>
-                                    <textarea id="textarea1" class="materialize-textarea" name="<?php echo $playerKey; ?>"><?php echo $playerInfo; ?></textarea>
-                                  </div>
-                                </div>
-                          <?php } 
-                          } ?>
-                          </div>
-                          <button type="submit">SAVE</button>
-                        </form>
+                      <form action="config/edit_player.php?id=<?php echo $playerInfos['ID'] ?>" method="POST" enctype="multipart/form-data">
+                        <div>
+                            <?php foreach($playerInfos as $playerKey => $playerInfo) {
+                                if (isImage($playerInfo)) { ?>
+                                    <div>
+                                      <div>
+                                          <span>File</span>
+                                          <input type="file" name=<?php echo $playerKey ?>>
+                                      </div>
+                                      <div class="file-path-wrapper">
+                                          <input class="file-path validate" type="text" name=<?php echo $playerKey ?> placeholder=<?php echo "'$playerKey'" ?>>
+                                          <img src="<?php echo $playerInfos['profilepicture']; ?>" alt="Photo du joueur" width="150" height="220">
+                                      </div>
+                                    </div>
+                                <?php } else {
+                                    if ($playerKey == "ID") continue; ?>
+                                    <div>
+                                        <div class="input-field col s12">
+                                            <label for="<?php echo $playerKey ?>"><?php echo $playerKey ?></label>
+                                            <textarea id="textarea1" class="materialize-textarea" name="<?php echo $playerKey; ?>"><?php echo $playerInfo; ?></textarea>
+                                        </div>
+                                    </div>
+                                <?php }
+                            } ?>
+                        </div>
+                        <button type="submit">SAVE</button>
+                      </form>
                       </div>
                     </div>
                   </li>
