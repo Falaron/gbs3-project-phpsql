@@ -14,16 +14,68 @@
   </head>
 
   <body>
+    <h1>ADMIN PANEL</h1>
+
     <!-- Tab links -->
     <div class="tab">
       <button class="tablinks" onclick="openBox(event, 'MANAGERS')">MANAGERS</button>
       <button class="tablinks" onclick="openBox(event, 'PLAYERS')">PLAYERS</button>
     </div>
 
-    <!-- Tab content -->
+    <!-- Manager Tab content -->
     <div id="MANAGERS" class="tabcontent">
-      <h3>MANAGERS</h3>
-      <p>London is the capital city of England.</p>
+      <!-- User Tab -->
+      <?php
+        $sql = "SELECT * FROM MANAGER"; 
+        $pre = $pdo->prepare($sql); 
+        $pre->execute();
+        $dataManager = $pre->fetchAll(PDO::FETCH_ASSOC); 
+      ?>
+
+      <div id="theManagers">
+        <h2>MANAGERS</h2>
+        <ul>
+          <?php foreach($dataManager as $managerInfo){ ?>
+            <li>
+              <div><h3><?php echo $managerInfo['username'] ?></h3></div>
+              <div>
+                <form method="post" action="config/delete_manager.php">
+                  <input type="hidden" name="delManager" value="<?php echo $managerInfo['ID']; ?>">
+                  <button type="submit">Delete Manager</button>
+                </form>
+                <ul>
+                  <li><p>EMAIL : <?php echo $managerInfo['mail']; ?></p></li>
+                  <li><p>PASSWORD : <?php echo $managerInfo['manager_password']; ?></p></li>
+                  <li><p>USER ROLE : <?php echo ($managerInfo['manager_role']) ? 'Admin' : 'Non Admin'; ?></p></li>
+                </ul>
+                <ul>
+                  <li>
+                    <div>
+                      <p>MODIFY CONTENT</p>
+                    </div>
+                    <div>
+                      <div>
+                        <form action="config/edit_user.php?id=<?php echo $managerInfo['ID'] ?>" method="POST">
+                          <div>
+                            <?php foreach($managerInfo as $managerKey => $userInfo){ 
+                              if($managerKey == "ID") continue; ?>
+                              <div>
+                                <label for="name"><?php echo $managerKey ?></label>
+                                <textarea id="textarea3" name="<?php echo $managerKey ?>"><?php echo $userInfo; ?></textarea>
+                              </div>
+                            <?php } ?>
+                          </div>
+                          <button type="submit">SAVE</button>
+                        </form>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          <?php } ?>
+        </ul>
+      </div>
     </div>
 
     <div id="PLAYERS" class="tabcontent">
