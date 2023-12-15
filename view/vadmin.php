@@ -95,10 +95,10 @@
         <ul >
           <?php foreach($dataPlayer as $playerInfos){ ?>
             <li>
-              <div><h3 ><?php echo "USERNAME".$playerInfos['player_name'] ?></h3></div>
+              <div><h3 ><?php echo $playerInfos['player_name'] ?></h3></div>
               <div >
                 <form method="post" action="config/delete_player.php">
-                  <input type="hidden" name="deletePlayer" value="<?php echo $playerInfos['ID']; ?>">
+                  <input type="hidden" name="delPlayer" value="<?php echo $playerInfos['ID']; ?>">
                   <button type="submit">Delete Player</button>
                 </form>
                 <p><?php echo $playerInfos['player_bio']; ?></p>
@@ -111,10 +111,10 @@
                     </div>
                     <div>
                       <div>
-                      <form action="config/edit_player.php?id=<?php echo $playerInfo['ID'] ?>" method="POST">
+                      <form action="config/edit_player.php?id=<?php echo $playerInfos['ID'] ?>" method="POST">
                           <div>
                           <?php foreach($playerInfos as $playerKey => $playerInfo){
-                            if(isImage($projectInfos) == true){ ?>
+                            if(isImage($playerInfo) == true){ ?>
                               <div>
                                 <div>
                                   <div>
