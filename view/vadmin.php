@@ -14,80 +14,21 @@
   </head>
 
   <body>
-    <!-- <?php
-      //$sql = "SELECT * FROM managers";
-      //$pre = $pdo->prepare($sql);
-      //$pre->execute();
-      //$data = $pre->fetch(PDO::FETCH_ASSOC);
-      ?>
-      <p><?php //echo $data['first_name']; ?></p> -->
-
-    <div id="profile-container">
-      <div id="header">
-        <h1>Esports Profile</h1>
+    <!-- Tab links -->
+    <div class="tab">
+      <button class="tablinks" onclick="openbox(event, 'MANAGERS')">MANAGERS</button>
+      <button class="tablinks" onclick="openbox(event, 'PLAYERS')">PLAYERS</button>
     </div>
 
-      <div id="player-info">
-        <div id="player-section">
-          <h1>John 'Enigma' Doe</h1>
-          <div class="best-rank">12th Super Smash Bros. Ultimate</div>
-          <div class="player-image">
-              <img src="assets/img/player-image.jpg" alt="Player Image">
-          </div>
-        </div>
-        <div id="about-me">
-          <h2>About Me</h2>
-          <p>John 'Enigma' Doe is a highly skilled professional esports athlete, renowned worldwide for his strategic finesse and remarkable versatility in various online games. He possesses an impressive gaming experience of more than 6 years in the international esports arena.</p>
-        </div>
-      </div>
+    <!-- Tab content -->
+    <div id="MANAGERS" class="tabcontent">
+      <h3>MANAGERS</h3>
+      <p>London is the capital city of England.</p>
+    </div>
 
-      <section>
-          <h2>Ranking</h2>
-          <div id="games">
-          
-          <div class="game-item item">
-              <strong>Super Smash Bros. Ultimate</strong>
-              <em>12th</em>
-          </div>
-          <div class="game-item item">
-              <strong>Super Smash Bros. Ultimate</strong>
-              <em>12th</em>
-          </div>
-          <div class="game-item item">
-              <strong>Super Smash Bros. Ultimate</strong>
-              <em>12th</em>
-          </div>
-          <div class="game-item item">
-              <strong>Super Smash Bros. Ultimate</strong>
-              <em>12th</em>
-          </div>
-          <div class="game-item item">
-              <strong>Super Smash Bros. Ultimate</strong>
-              <em>12th</em>
-          </div>
-          <div class="game-item item">
-              <strong>Super Smash Bros. Ultimate</strong>
-              <em>12th</em>
-          </div>
-          </div>
-      </section>
-
-      <section>
-          <h2>Skills</h2>
-          <div id="skills">
-              <div class="skill-item item">Strong team player with excellent communication skills</div>
-              <div class="skill-item item">Consistently maintains top rank in global player boards.</div>
-              <div class="skill-item item">Ability to perform under high-stress conditions</div>
-              <div class="skill-item item">Exceptional skills on retro games, effortlessly mastering its intricacies.</div>
-          </div>
-      </section>
-
-      <div id="footer">
-        <div id="social-links">
-          <a href="https://twitter.com" target="_blank">Twitter</a>
-          <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-        </div>
-      </div>
+    <div id="PLAYER" class="tabcontent">
+      <h3>PLAYERS</h3>
+      <p>Paris is the capital of France.</p>
     </div>
   </body>
 </html>
