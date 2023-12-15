@@ -13,6 +13,9 @@
     <meta http-equiv="expires" content="0" />
   </head>
   <body>
+      <!-- NAVBAR -->
+      <?php require ('assets/parts/navbar.php');?>
+      
   <div id="header">
     <h1>Esports Profile</h1>
   </div>

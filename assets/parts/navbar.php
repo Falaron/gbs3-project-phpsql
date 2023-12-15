@@ -29,7 +29,7 @@
           <li><a href='signup.php'>Signup</a></li>
         <?php }
         elseif (isset($_SESSION['login']) && $_SESSION['login'] == true && $_SESSION['role'] == 1) { ?>
-            <li><a href='#'>Admin Panel</a></li>
+            <li><a href='admin.php'>Admin Panel</a></li>
           <?php }
         if (isset($_SESSION['login']) && $_SESSION['login'] == true) { ?>
             <li><a href='config/logout.php'>Logout</a></li>
