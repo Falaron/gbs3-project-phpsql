@@ -23,7 +23,7 @@
 
     <div id="form-container">
       <h2>Forgot Password</h2>
-      <form id="forgot-password-form" action="forgot_password.php" method="post">
+      <form id="forgot-password-form" action="config/forgot_password.php" method="post">
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
 
