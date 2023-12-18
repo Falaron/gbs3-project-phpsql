@@ -14,11 +14,9 @@
   </head>
 
   <body>
-      <!-- NAVBAR -->
-      <?php require ('assets/parts/navbar.php');?>
-  <?php
-  
-
+    <!-- NAVBAR -->
+    <?php
+      require ('assets/parts/navbar.php');
       $pageid = $_GET['id'];
 
       $sql = "SELECT * FROM PLAYER WHERE ID = $pageid";
@@ -33,19 +31,19 @@
         <h1>Esports Profile</h1>
     </div>
 
-      <div id="player-info">
-        <div id="player-section">
+    <div id="player-info">
+      <div id="player-section">
         <h2><?php echo $data['player_name']; ?></h2>
-          <div class="best-rank">12th Super Smash Bros. Ultimate</div>
-          <div class="player-image">
-          <img src="<?php echo $data['profilepicture']; ?>" alt="Photo du joueur"width="150" height="220">
-          </div>
-        </div>
-        <div id="about-me">
-          <h2>About Me</h2>
-          <p><?php echo $data['player_bio']; ?></p>
-        </div>
+        <div class="best-rank">12th Valorant</div>
+        <div class="player-image">
+        <img src="<?php echo $data['profilepicture']; ?>" alt="Photo du joueur"width="150" height="220">
       </div>
+      </div>
+      <div id="about-me">
+        <h2>About Me</h2>
+        <p><?php echo $data['player_bio']; ?></p>
+      </div>
+    </div>
 
       <!-- RANKING SECTION -->
       <?php require ('assets/parts/show-games.php');?>
