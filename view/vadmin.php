@@ -101,9 +101,9 @@
                   <input type="hidden" name="delPlayer" value="<?php echo $playerInfos['ID']; ?>">
                   <button type="submit">Delete Player</button>
                 </form>
-                <p><?php echo $playerInfos['player_bio']; ?></p>
-                <h4><?php echo $playerInfos['twitter']; ?></H4>
-                <h4><?php echo $playerInfos['linked_In']; ?></H4>
+                <p>BIO : <?php echo $playerInfos['player_bio']; ?></p>
+                <h4>TWITTER : <?php echo $playerInfos['twitter']; ?></H4>
+                <h4>LINKED_IN : <?php echo $playerInfos['linked_In']; ?></H4>
                 <ul>
                   <li>
                     <div>

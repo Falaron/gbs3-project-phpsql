@@ -6,7 +6,6 @@ $usernameErr = $emailErr = $passwordErr = $confirmPasswordErr = "";
 $role = 0;
 
 // CHECKING IF USERNAME POST IS NOT EMPTY
-
 if(empty(trim($_POST['username']))){
   $usernameErr = "You have to write something here.";
   header('Location:../signup.php?firstNameErr='.$firstNameErr);
