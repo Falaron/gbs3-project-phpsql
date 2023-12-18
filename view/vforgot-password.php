@@ -14,13 +14,16 @@
   </head>
 
   <body>
+    <!-- NAVBAR -->
+    <?php require('assets/parts/navbar.php');?>
+
     <div id="header">
       <h1>Esports Profile</h1>
     </div>
 
     <div id="form-container">
       <h2>Forgot Password</h2>
-      <form id="forgot-password-form" action="#" method="post">
+      <form id="forgot-password-form" action="forgot_password.php" method="post">
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
 
