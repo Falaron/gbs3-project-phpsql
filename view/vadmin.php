@@ -116,14 +116,11 @@
                             <?php foreach($playerInfos as $playerKey => $playerInfo) {
                                 if (isImage($playerInfo)) { ?>
                                     <div>
-                                      <div>
-                                          <span>File</span>
-                                          <input type="file" name=<?php echo $playerKey ?>>
-                                      </div>
-                                      <div class="file-path-wrapper">
-                                          <input class="file-path validate" type="text" name=<?php echo $playerKey ?> placeholder=<?php echo "'$playerKey'" ?>>
-                                          <img src="<?php echo $playerInfos['profilepicture']; ?>" alt="Photo du joueur" width="150" height="220">
-                                      </div>
+                                        <div>
+                                            <label for="<?php echo $playerKey ?>"><?php echo $playerKey ?></label>
+                                            <input type="file" name="<?php echo $playerKey; ?>">
+                                            <img src="<?php echo $playerInfos['profilepicture']; ?>" alt="Photo du joueur" width="150" height="220">
+                                        </div>
                                     </div>
                                 <?php } else {
                                     if ($playerKey == "ID") continue; ?>
@@ -138,6 +135,7 @@
                         </div>
                         <button type="submit">SAVE</button>
                       </form>
+
                       </div>
                     </div>
                   </li>
