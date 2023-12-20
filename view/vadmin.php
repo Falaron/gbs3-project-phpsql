@@ -93,11 +93,16 @@
       <div id="skills-container">
         <!-- Initial skill input field -->
         <div class="skill-input">
+          <?php foreach($dataSkills as $skillInfos){ ?>
           <label for="skill1">Skill 1:</label>
-          <input type="text" class="skill" name="skills[]" required value="Strong team player with excellent communication skills">
+          <?php if ($skillInfos['ID_PLAYER'] == $playerInfos['ID']) { ?>
+          <input type="text" class="skill" name="skills[]" required value="<?php echo $skillInfos['skill'];?>">
           <!-- Remove button is disabled when there is only one skill -->
           <button type="button" class="remove-btn" onclick="removeSkill(this)" disabled>Remove</button>
+          <?php } 
+          } ?>
         </div>
+
       </div>
       <button type="button" onclick="addSkill()">Add Skill</button>
     </div>
