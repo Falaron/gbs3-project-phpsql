@@ -28,13 +28,11 @@
     
     <div id="profile-container">
       <div id="header">
-        <h1>Esports Profile</h1>
+        <h1><?php echo $data['player_name']; ?></h1>
     </div>
 
     <div id="player-info">
       <div id="player-section">
-        <h2><?php echo $data['player_name']; ?></h2>
-        <div class="best-rank">12th Valorant</div>
         <div class="player-image">
         <img src="<?php echo $data['profilepicture']; ?>" alt="Photo du joueur"width="150" height="220">
       </div>

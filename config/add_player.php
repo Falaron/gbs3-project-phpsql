@@ -4,7 +4,6 @@
     $fileInfo = $_FILES["profile_picture"];
     $tmpName = $fileInfo['tmp_name'];
     $name = $fileInfo['name'];
-var_dump($tmpName);
 
     $uniqueName = uniqid('', true);
     $tabExtension = explode('.', $name);
@@ -14,6 +13,7 @@ var_dump($tmpName);
     move_uploaded_file($tmpName, '../assets/img/'.$file);
     $imgValue = "/gbs3-project-phpsql/assets/img/".$file;
 
+    // Insert Player infos
     $sqlInsert = "INSERT INTO PLAYER(player_name, player_bio, twitter, linked_In, profilepicture) VALUES (:player_name, :player_bio, :twitter, :linked_In, :profilepicture)";
 
     $dataBindedInsert = array(
@@ -23,7 +23,6 @@ var_dump($tmpName);
         ':linked_In' => $_POST['linked_In'],
         ':profilepicture' => $imgValue
     );
-    var_dump($dataBindedInsert);
 
     $preInsert = $pdo->prepare($sqlInsert);
     $preInsert->execute($dataBindedInsert);
