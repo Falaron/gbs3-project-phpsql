@@ -42,6 +42,39 @@
             $pre->execute($dataBinded);  
         }
     }
+
+    foreach ($_POST['skills'] as $skillID => $skillValue) {
+        $sql = "UPDATE SKILLS SET skill = :value WHERE ID = :id";
+        $dataBinded = array(
+            ':value' => $skillValue,
+            ':id' => $skillID
+        );
+        $pre = $pdo->prepare($sql);
+        $pre->execute($dataBinded);
+    }
+
+    foreach ($_POST['game'] as $gameID => $gameValue) {
+        // Update the game name
+        $sql = "UPDATE GAMES SET name = :value WHERE ID = :id";
+        $dataBinded = array(
+            ':value' => $gameValue,
+            ':id' => $gameID
+        );
+        $pre = $pdo->prepare($sql);
+        $pre->execute($dataBinded);
+
+        // Update the game rank (assuming 'game_rank' is the field name)
+        $rankKey = 'rank_' . $gameID;
+        if (isset($_POST['rank'][$gameID])) {
+            $sql = "UPDATE GAMES SET game_rank = :value WHERE ID = :id";
+            $dataBinded = array(
+                ':value' => $_POST['rank'][$gameID],
+                ':id' => $gameID
+            );
+            $pre = $pdo->prepare($sql);
+            $pre->execute($dataBinded);
+        }
+    }
   
-    header('Location:../admin.php');
+    //header('Location:../admin.php');
 ?>
