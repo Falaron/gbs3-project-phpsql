@@ -115,14 +115,14 @@
                 <p>BIO : <?php echo $playerInfos['player_bio']; ?></p>
                 <h4>TWITTER : <?php echo $playerInfos['twitter']; ?></H4>
                 <h4>LINKED_IN : <?php echo $playerInfos['linked_In']; ?></H4>
-                <?php foreach($dataSkills as $skillsInfos){
+                <?php foreach($dataSkills as $skillsInfos){ 
                   if ($skillsInfos['ID_PLAYER'] == $playerInfos['ID']) { ?>
-                    <p>SKILL : <?php echo $skillsInfos['skill']; }}?></p>
-                  
-                <?php foreach($dataGames as $gamesInfos)
-                  if ($gamesInfos['ID_PLAYER'] == $playerInfos['ID']){ ?>
-                    <p>GAME : <?php echo $gamesInfos['name']." - ".$gamesInfos['game_rank'];}} ?></p>
-                                    
+                    <p>SKILL : <?php echo $skillsInfos['skill']; ?></p>
+                  <?php }
+               foreach($dataGames as $gamesInfos){
+                
+                }
+                } ?>
                 <ul>
                   <li>
                     <div>
@@ -160,7 +160,7 @@
                 </ul>
               </div>
             </li>
-          <?php ?>
+          <?php } ?>
         </ul>
         <!-- Player Project Add -->
         <div id="modal-add-project">
