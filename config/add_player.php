@@ -1,6 +1,6 @@
 <?php
     require('config.php');
-    
+
     $fileInfo = $_FILES["profile_picture"];
     $tmpName = $fileInfo['tmp_name'];
     $name = $fileInfo['name'];
@@ -27,4 +27,6 @@ var_dump($tmpName);
 
     $preInsert = $pdo->prepare($sqlInsert);
     $preInsert->execute($dataBindedInsert);
+
+    header('Location:../admin.php');
 ?>
