@@ -41,30 +41,30 @@
   <?php foreach($dataPlayer as $playerInfos){ ?>
   <form method="POST" action="" enctype="multipart/form-data" onsubmit="copyContent();" >
     <div id="update-player-info">
-      <h2>Player Information</h2>
+      <h2><?php echo $playerInfos['player_name'] ?></h2>
       <form method="post" action="config/delete_player.php">
         <input type="hidden" name="delPlayer" value="<?php echo $playerInfos['ID']; ?>">
         <button type="submit">Delete Player</button>
       </form>
       <label for="player-name">Player Name:</label>
-      <input type="text" id="player-name" name="player-name" required value="John 'Enigma' Doe">
+      <input type="text" id="player-name" name="player-name" required value="<?php echo $playerInfos['player_name'];?>">
 
       <label for="player-bio">Player Bio:</label>
       <textarea type="text" placeholder="Required Field" required
         class="form-control" id="player-bio"
         rows="3" cols="150" wrap="off"
-        style="overflow: hidden;">Johsala
+        style="overflow: hidden;"><?php echo $playerInfos['player_bio'];?>
       </textarea>
-      <input type="hidden" id="hidden-player-bio" name="player-bio" value="John 'Enigma' Doe is a highly skilled professional esports athlete, renowned worldwide for his strategic finesse and remarkable versatility in various online games. He possesses an impressive gaming experience of more than 6 years in the international esports arena."></input>
+      <input type="hidden" id="hidden-player-bio" name="player-bio" value="<?php echo $playerInfos['player_bio'];?>"></input>
 
       <label for="player-image">Player Image:</label>
       <input type="file" id="player-image" name="player-image">
 
       <label for="twitter">Twitter:</label>
-      <input type="text" id="twitter" name="twitter" value="https://twitter.com">
+      <input type="text" id="twitter" name="twitter" value="<?php echo $playerInfos['twitter'];?>">
 
       <label for="linkedin">LinkedIn:</label>
-      <input type="text" id="linkedin" name="linkedin" value="https://linkedin.com">
+      <input type="text" id="linkedin" name="linkedin" value="<?php echo $playerInfos['linked_In'];?>">
     </div>
 
     <div id="update-games">
@@ -72,11 +72,17 @@
       <div id="games-container">
         <!-- Initial game input field -->
         <div class="game-input">
-          <label for="game1">Game 1:</label>
-          <input type="text" class="game" name="games['name'][]" required value="Super Smash Bros. Ultimate">
-          <input type="text" class="rank" name="games['rank'][]" value="12">
-          <!-- Remove button is disabled when there is only one game -->
-          <button type="button" class="remove-btn" onclick="removeGame(this)" disabled>Remove</button>
+          <?php foreach($dataGames as $gamesInfos){ ?>
+            <label for="game1">Game:</label>
+            <?php if ($gamesInfos['ID_PLAYER'] == $playerInfos['ID']) { ?>
+            <input type="text" class="game" name="games['name'][]" required value="<?php echo $gamesInfos['name'];?>">
+            <input type="text" class="rank" name="games['rank'][]" value="<?php echo $gamesInfos['game_rank']; ?>">
+
+            <!-- Remove button is disabled when there is only one game -->
+            <button type="button" class="remove-btn" onclick="removeGame(this)" disabled>Remove</button>
+            <?php } 
+          } ?>
+          
         </div>
       </div>
       <button type="button" onclick="addGame()">Add Game</button>
@@ -104,9 +110,9 @@
       const gamesContainer = document.getElementById('games-container');
       const newGameInput = document.createElement('div');
       newGameInput.className = 'game-input';
-      const newGameNumber = gamesContainer.children.length + 1;
+      const newGameNumber = gamesContainer.children.length;
       newGameInput.innerHTML = `
-        <label for="game${newGameNumber}">Game ${newGameNumber}:</label>
+        <label for="game${newGameNumber}">Game:</label>
         <input type="text" class="game" name="games['name'][]" required>
         <input type="text" class="rank" name="games['rank'][]" >
         <button type="button" class="remove-btn" onclick="removeGame(this)">Remove</button>
