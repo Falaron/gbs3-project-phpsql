@@ -89,6 +89,12 @@
         $pre = $pdo->prepare($sql); 
         $pre->execute();
         $dataPlayer = $pre->fetchAll(PDO::FETCH_ASSOC); 
+
+        $sql = "SELECT * FROM SKILLS"; 
+        $pre = $pdo->prepare($sql); 
+        $pre->execute();
+        $dataSkills = $pre->fetchAll(PDO::FETCH_ASSOC); 
+
       ?>
       <div  id="PLAYER">
         <h2 >PLAYERS</h2>
@@ -104,6 +110,11 @@
                 <p>BIO : <?php echo $playerInfos['player_bio']; ?></p>
                 <h4>TWITTER : <?php echo $playerInfos['twitter']; ?></H4>
                 <h4>LINKED_IN : <?php echo $playerInfos['linked_In']; ?></H4>
+                <?php foreach($dataSkills as $skillsInfos){ 
+                  if ($skillsInfos['ID_PLAYER'] == $playerInfos['ID']) { ?>
+                    <p>SKILL : <?php echo $skillsInfos['skill']; ?></p>
+                  <?php }
+                } ?>
                 <ul>
                   <li>
                     <div>
@@ -155,7 +166,7 @@
                     <div>
                         <div>
                             <label for="<?php echo $playerKey ?>"><?php echo $playerKey ?></label>
-                            <input type="file" name="<?php echo $playerKey; ?>">
+                            <input type="file" name="profile_picture">
                         </div>
                     </div>
                 <?php } else {
