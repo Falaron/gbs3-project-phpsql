@@ -39,7 +39,7 @@
   </div>
 
   <?php foreach($dataPlayer as $playerInfos){ ?>
-  <form method="POST" action="" enctype="multipart/form-data" onsubmit="copyContent();" >
+  <form  action="config/edit_player.php?id=<?php echo $playerInfos['ID'] ?>" method="POST" enctype="multipart/form-data" onsubmit="copyContent();" >
     <div id="update-player-info">
       <h2>Player Information</h2>
       <form method="post" action="config/delete_player.php">
