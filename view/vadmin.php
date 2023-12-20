@@ -58,7 +58,7 @@
       <input type="hidden" id="hidden-player-bio" name="player-bio" value="<?php echo $playerInfos['player_bio'];?>"></input>
 
       <label for="player-image">Player Image:</label>
-      <input type="file" id="player-image" name="player-image">
+      <input type="file" id="player-image" name="<?php echo $playerInfos['profilepicture']; ?>">
 
       <label for="twitter">Twitter:</label>
       <input type="text" id="twitter" name="twitter" value="<?php echo $playerInfos['twitter'];?>">
