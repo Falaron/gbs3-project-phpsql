@@ -21,7 +21,7 @@
     <h1>Esports Profile</h1>
     </div>
 
-    <div id="form-container">
+    <div class="form-container" id="form-container">
       <h2>Login</h2>
       <form id="login-form" method="post" action="config/login.php">
         <label for="email">Mail:</label>

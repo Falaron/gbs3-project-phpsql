@@ -16,33 +16,25 @@
 <a div class="header">
     <nav class="navbar">
         <a href="index.php" class="logo">Team Rooster Pro</a>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Gallery</a>
-        <a href="#"></a>
-</nav> 
-      <ul>
-      <?php
-      foreach($data as $dataPlayer){ ?>
-        <li><a href="esport-profile.php?id=<?php echo $dataPlayer['ID'];?>"><?php echo $dataPlayer['player_name'];?> Profile</a></li>
-      <?php }
-      ?>
 
-        <!-- changing links according to if your are logged in, out, admin -->
         <?php if(isset($_SESSION['login']) && !$_SESSION['login']) {?>
-          <li><a href='login.php'>Login</a></li>
-          <li><a href='signup.php'>Signup</a></li>
+          <a href='login.php'>Login</a>
+          <a href='signup.php'>Signup</a>
         <?php }
         elseif (isset($_SESSION['login']) && $_SESSION['login'] == true && $_SESSION['role'] == 1) { ?>
-            <li><a href='admin.php'>Admin Panel</a></li>
+          <a href='admin.php'>Admin Panel</a>
           <?php }
         if (isset($_SESSION['login']) && $_SESSION['login'] == true) { ?>
-            <li><a href='forgot-password.php'>Forgot Password</a></li>
-            <li><a href='config/logout.php'>Logout</a></li>
+          <a href='forgot-password.php'>Forgot Password</a>
+          <a href='config/logout.php'>Logout</a>
           <?php } ?>
         
 
-        <li><span> <?php echo (isset($_SESSION['login']) && $_SESSION['login'] == true) ? "Hello ".$hello : 'You are logged out'; ?> </span></li>  
-      </ul>
+        <span> <?php echo (isset($_SESSION['login']) && $_SESSION['login'] == true) ? "Hello ".$hello : 'You are logged out'; ?> </span></li>
+    </nav> 
+      <ul>
+      <?php
+      //foreach($data as $dataPlayer){ ?>
+        <!-- <a href="esport-profile.php?id=<?php //echo $dataPlayer['ID'];?>"><?php// echo $dataPlayer['player_name'];?> Profile</a> -->
   </div>
 </nav>
