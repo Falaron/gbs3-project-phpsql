@@ -1,7 +1,7 @@
 # gbs3-project-phpsql
-Team: Arthur JOUVE - Marine BOLOGNA.  
-Ce site internet a été réalisé dans le cadre d'un projet scolaire de la Gaming Business School, 3e année.
-Langage utilisé : PHP, MYSQL, CSS, JS.
+Team: Arthur JOUVE — Marine BOLOGNA.  
+This website was created as part of a school project at Gaming Business School, 3rd year.
+Language used: PHP, MYSQL, CSS, JS.
 
 ----------------
 
