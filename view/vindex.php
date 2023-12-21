@@ -26,7 +26,7 @@
 
     <div id="profile-container">
       <div id="header">
-        <h1>Team list</h1>
+        <h1 class="title">Team list</h1>
       </div>
       
       <?php
