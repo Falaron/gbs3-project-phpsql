@@ -5,5 +5,5 @@ $_SESSION['login'] = false;
 unset($_SESSION['user']);
  
 header("location: ../index.php");
-exit;
+exit();
 ?>

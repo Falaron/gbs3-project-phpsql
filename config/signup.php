@@ -104,4 +104,5 @@ if (empty($usernameErr) && empty($emailErr) && empty($passwordErr) && empty($con
     var_dump($_SESSION);
 
     header('Location: ../index.php');
+    exit();
 }
