@@ -11,7 +11,7 @@
 
     $file = $uniqueName.".".$extension;
     move_uploaded_file($tmpName, '../assets/img/'.$file);
-    $imgValue = "/gbs3-project-phpsql/assets/img/".$file;
+    $imgValue = "assets/img/".$file;
 
     // Insert Player infos
     $sqlInsert = "INSERT INTO PLAYER(player_name, player_bio, twitter, linked_In, profilepicture) VALUES (:player_name, :player_bio, :twitter, :linked_In, :profilepicture)";

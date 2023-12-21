@@ -34,7 +34,7 @@ if (isset($_POST['email'])) {
         $to = $postMail;
         $subject = "Update password";
         $message = "Please update your password by clicking the link below: \n";
-        $message .= "Contenu de l'e-mail. <a href='https://www.team-roaster-pro.alwaysdata.net/update-password.php?token=$token'>Reset password here.</a>";
+        $message .= "Contenu de l'e-mail. <a href='https://team-roster-pro.alwaysdata.net/update-password.php?token=$token'>Reset password here.</a>";
 
 
         $headers = "From: team-roster-pro@alwaysdata.net\r\n";
