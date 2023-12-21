@@ -25,7 +25,11 @@ if ($token) {
           header('Location:../update-password.php?passwordErr='.$passwordErr);
 
         } else{
-          $password = trim($_POST["password"]);
+          $password = $_POST['password'];
+          $options = [
+              'cost' => 12,
+          ];
+          $hash = password_hash($password, PASSWORD_ARGON2I, $options);
         }
 
         // password validation
@@ -45,9 +49,10 @@ if ($token) {
         // CHECKING IF TEST ABOVE RETURNED ERRORS
 
         if (empty($passwordErr) && empty($confirmPasswordErr)) {
+
             $sqlUpdate = "UPDATE MANAGER SET manager_password = :manager_password WHERE ID = :manager_id";
             $preUpdate = $pdo->prepare($sqlUpdate);
-            $preUpdate->bindParam(':manager_password', $password, PDO::PARAM_STR);
+            $preUpdate->bindParam(':manager_password', $hash, PDO::PARAM_STR);
             $preUpdate->bindParam(':manager_id', $manager_id, PDO::PARAM_INT);
             $preUpdate->execute();
 

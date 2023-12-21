@@ -1,43 +1,57 @@
-<?php 
-require_once "config.php"; 
+<?php
+require_once "config.php";
 
 $emailErr = $passwordErr = '';
-//$hashedPassword = SHA1($_POST['password']);
-$hashedPassword = $_POST['password'];
 
-if(empty(trim($_POST['email']))){
+if (empty(trim($_POST['email']))) {
     $emailErr = "You have to write something here.";
-    header('Location:../index.php?emailErr='.$emailErr);
-
-  } elseif(empty(trim($_POST['password']))){
+    header('Location:../index.php?emailErr=' . $emailErr);
+    exit();
+} elseif (empty(trim($_POST['password']))) {
     $passwordErr = "You have to write something here.";
-    header('Location:../index.php?passwordErr='.$passwordErr);
+    header('Location:../index.php?passwordErr=' . $passwordErr);
+    exit();
 }
 
-if(empty($emailErr) && empty($passwordErr)){
-    $sql = "SELECT * FROM MANAGER WHERE mail=:email AND manager_password=:manager_password";
-    
-    $dataBinded=array(
-        ':email'   => $_POST['email'],
-        ':manager_password'=> $hashedPassword
-    );
+$sql = "SELECT manager_password FROM MANAGER WHERE mail=:email";
+$dataBinded = array(':email' => $_POST['email']);
 
+$pre = $pdo->prepare($sql);
+$pre->execute($dataBinded);
+$result = $pre->fetch(PDO::FETCH_ASSOC);
+$hashedPasswordFromDB = $result['manager_password'];
 
-    $pre = $pdo->prepare($sql); 
+// Password verificaiton
+$givenPassword = $_POST['password'];
+var_dump($givenPassword);
+var_dump($hashedPasswordFromDB);
+
+if (password_verify($givenPassword, $hashedPasswordFromDB)) {
+    // Correct password
+    var_dump("i'm here");
+    $sql = "SELECT * FROM MANAGER WHERE mail=:email";
+
+    $dataBinded = array(':email' => $_POST['email']);
+
+    $pre = $pdo->prepare($sql);
     $pre->execute($dataBinded);
     $user = current($pre->fetchAll(PDO::FETCH_ASSOC));
 
-    if(empty($user)){ 
+    if (empty($user)) {
         $loginErr = "Email or password incorrect";
-        var_dump($_SESSION);
-        header('Location:../index.php?loginErr'.$loginErr);
-
-    }else{
-        var_dump($_SESSION);
-        $_SESSION['user'] = $user; // si on veut acceder à user_id on dit / $_SESSION['user']['user_id'] = $display / par exemple
+        header('Location:../index.php?loginErr=' . $loginErr);
+        exit();
+    } else {
+        $_SESSION['user'] = $user;
         $_SESSION['login'] = true;
-        $_SESSION['role'] = $user['manager_role']; // getting the role of the connected user (0 for none and 1 for admin)
+        $_SESSION['role'] = $user['manager_role'];
+        header('Location:../index.php');
+        exit();
     }
-    header('Location:../index.php');
+} else {
+    // Incorrect password
+    $loginErr = "Email or password incorrect";
+    header('Location:../index.php?loginErr=' . $loginErr);
+    exit();
 }
 ?>

@@ -31,21 +31,25 @@ if (isset($_POST['email'])) {
         $preInsert->bindParam(':expiration', $expirationDate, PDO::PARAM_STR); // Utilisation de la date formatée
         $preInsert->execute();
 
-        // Envoyer l'e-mail
         $to = $postMail;
         $subject = "Update password";
-        $message = "Click on the following link to update your password: \n";
-        $message .= "update-password.php?token=" . $token;
+        $message = "Please update your password by clicking the link below: \n";
+        $message .= "Contenu de l'e-mail. <a href='https://www.team-roaster-pro.alwaysdata.net/update-password.php?token=$token'>Reset password here.</a>";
 
-        // Vous pouvez personnaliser le reste du message selon vos besoins
-        $headers = "From: superteam@gmail.com";
 
-        // Assurez-vous que votre serveur est configuré pour envoyer des e-mails
-        mail($to, $subject, $message, $headers);
-        var_dump($to);
-        var_dump($subject);
-        var_dump($message);
-        var_dump($headers);
+        $headers = "From: team-roster-pro@alwaysdata.net\r\n";
+        $headers .= "Reply-To: team-roster-pro@alwaysdata.net\r\n";
+        $headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
+        
+        // Envoyer l'e-mail
+        $mailSent = mail($to, $subject, $message, $headers);
+        
+        // Vérifier si l'e-mail a été envoyé avec succès
+        if ($mailSent) {
+            echo "L'e-mail a été envoyé avec succès.";
+        } else {
+            echo "Erreur lors de l'envoi de l'e-mail.";
+        }
     }
 }
 ?>
