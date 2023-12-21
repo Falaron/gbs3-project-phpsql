@@ -32,6 +32,7 @@
             <li><a href='admin.php'>Admin Panel</a></li>
           <?php }
         if (isset($_SESSION['login']) && $_SESSION['login'] == true) { ?>
+            <li><a href='forgot-password.php'>Forgot Password</a></li>
             <li><a href='config/logout.php'>Logout</a></li>
           <?php } ?>
         

@@ -17,18 +17,22 @@
       <!-- NAVBAR -->
       <?php require ('assets/parts/navbar.php');?>
       
+      
   <div id="header">
     <h1>Esports Profile</h1>
   </div>
 
   <div id="form-container">
     <h2>Update Password</h2>
-    <form id="update-password-form" action="#" method="post">
-      <label for="new-password">New Password:</label>
-      <input type="password" id="new-password" name="new-password" required>
+    <form id="update-password-form" action="config/update_password.php" method="post">
+      <!-- hidden for token submission -->
+      <input type="hidden" name="token" value="<?php echo htmlspecialchars($_GET['token']); ?>">
 
-      <label for="confirm-new-password">Confirm New Password:</label>
-      <input type="password" id="confirm-new-password" name="confirm-new-password" required>
+      <label for="password">New Password:</label>
+      <input type="password" id="password" name="password" required>
+
+      <label for="confirmPassword">Confirm New Password:</label>
+      <input type="password" id="confirmPassword" name="confirmPassword" required>
 
       <button type="submit">Update Password</button>
     </form>
