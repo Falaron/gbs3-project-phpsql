@@ -1,5 +1,5 @@
 # gbs3-project-phpsql
-Team: Arthur JOUVE - Marine BOLOGNA
+Team: Arthur JOUVE - Marine BOLOGNA.  
 Ce site internet a été réalisé dans le cadre d'un projet scolaire de la Gaming Business School, 3e année.
 Langage utilisé : PHP, MYSQL, CSS, JS.
 
@@ -14,15 +14,15 @@ The website is available on [Team Roster Pro](https://team-roster-pro.alwaysdata
 ----------------
 
 ## Content
-Le site comprend :
-- Un système de création de compte et de connexion pour les managers,
-- Une page principale (index.php), avec la liste des joueurs de l'équipe et une description brève de chaque membre,
-- Un système de récupération de mot de passe, avec la génération d'un *token* envoyé par mail,
-- Si le manager est un administrateur (uniquement définit manuellement par un autre administrateur), il aura accès à une page administrative.
+The site includes :
+- An account creation and login system for managers,
+- A main page (index.php), with a list of team players and a brief description of each member,
+- A password recovery system, with the generation of a *token* sent by e-mail,
+- If the manager is an administrator (only set manually by another administrator), he or she will have access to an admin page.
 
-La page admin comprend :
-- Affichage, modification et suppression des managers,
-- Affichage, modification et suppression des joueurs,
-- Affichage, suppression et ajout des jeux/grades de chaque joueur,
-- Affichage, suppression et ajout des compétences de chaque joueur,
-- Formulaire de création d'un joueur.
+The admin page includes:
+- Viewing, editing and deleting managers,
+- Display, modify and delete players,
+- Display, delete and add games/grades for each player,
+- Display, delete and add skills for each player,
+- Player creation form.
