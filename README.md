@@ -6,7 +6,7 @@ Language used: PHP, MYSQL, CSS, JS.
 ----------------
 
 ## Description
-The website is available on [Team Roster Pro](https://team-roster-pro.alwaysdata.net/) ! (link may be inactive)
+The website is available on [Team Roster Pro](https://team-roster-pro.alwaysdata.net) ! (link may be inactive)
 
 > Team Roster Pro is a pro team creator! As a manager, you can create your own team on the games you want,
 > modify their information in real time.
