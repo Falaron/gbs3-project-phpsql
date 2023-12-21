@@ -70,12 +70,18 @@ if(empty(trim($_POST["confirmPassword"]))){
 // CHECKING IF TEST ABOVE RETURNED ERRORS & 
 
 if (empty($usernameErr) && empty($emailErr) && empty($passwordErr) && empty($confirmPasswordErr)) {
+    $user_password = $_POST['password'];
+    $options = [
+        'cost' => 12,
+    ];
+    $hash = password_hash($user_password, PASSWORD_ARGON2I, $options);
+
     $sqlInsert = "INSERT INTO MANAGER(username, mail, manager_password, manager_role) VALUES (:username, :mail, :manager_password, :manager_role)";
 
     $dataBindedInsert = array(
         ':username' => $_POST['username'],
         ':mail' => $_POST['email'],
-        ':manager_password' => $_POST['password'],
+        ':manager_password' => $hash,
         ':manager_role' => $role
     );
 

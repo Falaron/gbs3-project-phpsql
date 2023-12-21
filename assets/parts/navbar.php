@@ -13,9 +13,14 @@
   ?>
 
 <!-- NAVBAR ON PC -->
-<nav>
-  <div class="container">
-      <a href="index.php">Team Roster Pro</a>
+<a div class="header">
+    <nav class="navbar">
+        <a href="index.php" class="logo">Team Rooster Pro</a>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Gallery</a>
+        <a href="#"></a>
+</nav> 
       <ul>
       <?php
       foreach($data as $dataPlayer){ ?>
