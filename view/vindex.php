@@ -29,18 +29,23 @@
         <h1 class="title">Team list</h1>
       </div>
       
-      <?php
-      foreach($data as $dataPlayer){ ?>
-        <div>
-          <h2><?php echo $dataPlayer['player_name']; ?></h2>
-          <p><?php echo $dataPlayer['player_bio']; ?></p>
-          <img src="<?php echo $dataPlayer['profilepicture']; ?>" alt="Photo du joueur"width="150" height="220">
-          <p>Twitter : <a href="https://twitter.com/<?php echo $dataPlayer['twitter']; ?>" target="_blank"><?php echo $dataPlayer['twitter']; ?></a></p>
-          <p>LinkedIn : <?php echo $dataPlayer['linked_In']; ?></p>
-
-          <a href="esport-profile.php?id=<?php echo $dataPlayer['ID'];?>">See my profile.</a>
-      <?php }
-      ?>
+      <div class="player-container">
+        <?php
+        foreach($data as $dataPlayer){ ?>
+          <div class="player-box">
+            <img src="<?php echo $dataPlayer['profilepicture']; ?>" alt="Photo du joueur">
+            <h2><?php echo $dataPlayer['player_name']; ?></h2>
+            <p class="margin-bottom"><?php echo $dataPlayer['player_bio']; ?></p>
+            <div class="flex-align">
+              <a href="<?php echo $dataPlayer['twitter']; ?>" target="_blank">Twitter</a>
+              <a class="margin-bottom" href="<?php echo $dataPlayer['linked_In']; ?>" target="_blank">LinkedIn</a>
+            </div>
+            <a class="see-button" href="esport-profile.php?id=<?php echo $dataPlayer['ID'];?>">See my profile</a>
+          </div>
+        <?php }
+        ?>
+      </div>
+      
     </div>
 
   </body>
