@@ -49,7 +49,6 @@
                 </form>
                 <ul>
                   <li><p>EMAIL : <?php echo $managerInfo['mail']; ?></p></li>
-                  <li><p>PASSWORD : <?php echo $managerInfo['manager_password']; ?></p></li>
                   <li><p>USER ROLE : <?php echo ($managerInfo['manager_role']) ? 'Admin' : 'Non Admin'; ?></p></li>
                 </ul>
                 <ul>
@@ -62,7 +61,7 @@
                         <form action="config/edit_manager.php?id=<?php echo $managerInfo['ID'] ?>" method="POST">
                           <div>
                             <?php foreach($managerInfo as $managerKey => $userInfo){ 
-                              if($managerKey == "ID") continue; ?>
+                              if($managerKey == "ID" || $managerKey == "manager_password") continue; ?>
                               <div>
                                 <label for="name"><?php echo $managerKey ?></label>
                                 <textarea id="textarea3" name="<?php echo $managerKey ?>"><?php echo $userInfo; ?></textarea>

@@ -32,7 +32,7 @@
     
             $file = $uniqueName.".".$extension;
             move_uploaded_file($tmpName, '../assets/img/'.$file);
-            $value = "/gbs3-project-phpsql/assets/img/".$file;
+            $value = "assets/img/".$file;
     
             $sql = "UPDATE PLAYER SET $fileKey = :value WHERE ID = :id";
             $dataBinded = array(
