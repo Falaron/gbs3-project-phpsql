@@ -1,7 +1,9 @@
 /* global */
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap);
+
 body {
-  
-  font-family: Verdana, sans-serif;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
   background-color: #000;
   color: #fff;
   margin: 0;
@@ -11,20 +13,57 @@ body {
   align-items: center;
 }
 
-.title {
-  color: red;
-}
-
 /* profile */
 #profile-container {
-  background-color: #000;
+  background-color: #1A1A1A;
+  display: flex;
+  flex-direction: column;
   border-radius: 8px;
   overflow: hidden;
 }
 
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+.navbar {
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100%;
+  padding:20px 100px;
+  background-color: #1A1A1A;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  font-size: 18px;
+  color: #fff;
+  font-weight: 500;
+  text-decoration: none;
+  }
+
+.navbar a:hover {
+  color: #cacaca
+  ;
+}
+.logo {
+  font-size: 32px;
+  color: orange;
+  text-decoration: none;
+  font-weight: 700;
+
+}
 #header {
-  text-align: center;
+  top: 0;
+  left: 0;
+  width: 100%;
   padding: 20px;
+  text-align: center;
   background-color: #000000;
   color: #fff;
 }
@@ -69,7 +108,7 @@ body {
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 36px;
   font-weight: bold;
 }
 
@@ -130,6 +169,7 @@ h1 {
 h2,
 h3,
 label {
+  font-size: 28px;
   color: #fff;
 }
 

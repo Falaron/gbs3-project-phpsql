@@ -15,76 +15,10 @@
 
   <body>
      <!-- NAVBAR -->
-     <?php require('assets/parts/navbar.php');
-     require('config/image_detection.php')?>
+     <?php require('assets/parts/navbar.php');?>
      
-    <h1>ADMIN PANEL</h1>
-
-    <!-- Tab links -->
-    <div class="tab">
-      <button class="tablinks" onclick="openBox(event, 'MANAGERS')">MANAGERS</button>
-      <button class="tablinks" onclick="openBox(event, 'PLAYERS')">PLAYERS</button>
-    </div>
-
-    <!-- Manager Tab content -->
-    <div id="MANAGERS" class="tabcontent">
-      <!-- User Tab -->
-      <?php
-        $sql = "SELECT * FROM MANAGER"; 
-        $pre = $pdo->prepare($sql); 
-        $pre->execute();
-        $dataManager = $pre->fetchAll(PDO::FETCH_ASSOC); 
-      ?>
-
-      <div id="theManagers">
-        <h2>MANAGERS</h2>
-        <ul>
-          <?php foreach($dataManager as $managerInfo){ ?>
-            <li>
-              <div><h3><?php echo $managerInfo['username'] ?></h3></div>
-              <div>
-                <form method="post" action="config/delete_manager.php">
-                  <input type="hidden" name="delManager" value="<?php echo $managerInfo['ID']; ?>">
-                  <button type="submit">Delete Manager</button>
-                </form>
-                <ul>
-                  <li><p>EMAIL : <?php echo $managerInfo['mail']; ?></p></li>
-                  <li><p>PASSWORD : <?php echo $managerInfo['manager_password']; ?></p></li>
-                  <li><p>USER ROLE : <?php echo ($managerInfo['manager_role']) ? 'Admin' : 'Non Admin'; ?></p></li>
-                </ul>
-                <ul>
-                  <li>
-                    <div>
-                      <p>MODIFY CONTENT</p>
-                    </div>
-                    <div>
-                      <div>
-                        <form action="config/edit_manager.php?id=<?php echo $managerInfo['ID'] ?>" method="POST">
-                          <div>
-                            <?php foreach($managerInfo as $managerKey => $userInfo){ 
-                              if($managerKey == "ID") continue; ?>
-                              <div>
-                                <label for="name"><?php echo $managerKey ?></label>
-                                <textarea id="textarea3" name="<?php echo $managerKey ?>"><?php echo $userInfo; ?></textarea>
-                              </div>
-                            <?php } ?>
-                          </div>
-                          <button type="submit">SAVE</button>
-                        </form>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </li>
-          <?php } ?>
-        </ul>
-      </div>
-    </div>
-
-    <div id="PLAYERS" class="tabcontent">
-     <!-- Player Tab -->
-     <?php
+    <!-- Player Tab -->
+    <?php
         $sql = "SELECT * FROM PLAYER"; 
         $pre = $pdo->prepare($sql); 
         $pre->execute();
@@ -100,147 +34,93 @@
         $pre->execute();
         $dataGames = $pre->fetchAll(PDO::FETCH_ASSOC); 
 
-      ?>
-      <div  id="PLAYER">
-        <h2 >PLAYERS</h2>
-        <ul >
-          <?php foreach($dataPlayer as $playerInfos) { ?>
-            <li>
-              <div><h3 ><?php echo $playerInfos['player_name'] ?></h3></div>
-                <ul>
-                  <li>
-                    <div>
-                      <p>MODIFY CONTENT</p>
-                    </div>
-                    <div>
-                      <!-- MODIFY PLAYER INFOS -->
-                      <form method="post" action="config/delete_player.php">
-                          <input type="hidden" name="delPlayer" value="<?php echo $playerInfos['ID']; ?>">
-                          <button type="submit">Delete Player /!\</button>
-                      </form>
-                      <form action="config/edit_player.php?id=<?php echo $playerInfos['ID'] ?>" method="POST" enctype="multipart/form-data">
-                        <?php foreach($playerInfos as $playerKey => $playerInfo) {
-                            if (isImage($playerInfo)) { ?>
-                                <div>
-                                    <div>
-                                        <label for="<?php echo $playerKey ?>"><?php echo $playerKey ?></label>
-                                        <input type="file" name="<?php echo $playerKey; ?>">
-                                        <img src="<?php echo $playerInfos['profilepicture']; ?>" alt="Photo du joueur" width="150" height="220">
-                                    </div>
-                                </div>
-                            <?php } else {
-                                if ($playerKey == "ID") continue; ?>
-                                <div>
-                                    <div>
-                                        <label for="<?php echo $playerKey ?>"><?php echo $playerKey ?></label>
-                                        <textarea id="textarea1" name="<?php echo $playerKey; ?>"><?php echo $playerInfo; ?></textarea>
-                                    </div>
-                                </div>
-                            <?php }
-                        } ?>
-                        <button type="submit">SAVE PLAYER INFOS</button>
-                      </form>
-                        
-                      <!-- MODIFY OR ADD SKILL -->
-                      <!-- <form action="config/edit_skill.php?id=<?php echo $playerInfos['ID'] ?>" method="POST" enctype="multipart/form-data"> -->
-                        <?php foreach ($dataSkills as $skillsInfos) {
-                        if ($skillsInfos['ID_PLAYER'] == $playerInfos['ID']) { ?>
-                            <label for="skill_<?php echo $skillsInfos['ID']; ?>">Skill:</label>
-                            <textarea id="skill_<?php echo $skillsInfos['ID']; ?>" name="skills[<?php echo $skillsInfos['ID']; ?>]"><?php echo $skillsInfos['skill']; ?></textarea>
-                            <!-- Delete skill -->
-                            <form method="post" action="config/delete_skill.php">
-                              <input type="hidden" name="delSkill" value="<?php echo $skillsInfos['ID']; ?>">
-                              <button type="submit">Delete Skill</button>
-                            </form>
-                        <?php }
-                        } ?>
-                        
-                        <!-- New skill input -->
-                        <label for="skill_new">New Skill:</label>
-                        <form method="post" action="config/add_skill.php?id=<?php echo $playerInfos['ID']?>">
-                          <input type="text" name="addSkill" id="addSkill" required>
-                          <button type="submit">Add Skill</button>
-                        </form>
-                        <!-- <button type="submit">SAVE PLAYER SKILLS</button> -->
-                      <!-- </form> -->
-                            
-                      <!-- MODIFY OR ADD GAME -->
-                      <!-- <form action="config/edit_games_ranks.php?id=<?php echo $playerInfos['ID'] ?>" method="POST" enctype="multipart/form-data"> -->
-                        <?php
-                        foreach ($dataGames as $gamesInfos) {
-                        if ($gamesInfos['ID_PLAYER'] == $playerInfos['ID']) { ?>
-                            <label for="game_<?php echo $gamesInfos['ID']; ?>">Game:</label>
-                            <textarea id="game_<?php echo $gamesInfos['ID']; ?>" name="game[<?php echo $gamesInfos['ID']; ?>]"><?php echo $gamesInfos['name']; ?></textarea>
-                            <label for="rank_<?php echo $gamesInfos['ID']; ?>">Rank :</label>
-                            <textarea id="rank_<?php echo $gamesInfos['ID']; ?>" name="rank[<?php echo $gamesInfos['ID']; ?>]"><?php echo $gamesInfos['game_rank']; ?></textarea>
-                            <!-- Delete Game & Rank -->
-                            <form method="post" action="config/delete_game_rank.php">
-                              <input type="hidden" name="delGameRank" value="<?php echo $gamesInfos['ID']; ?>">
-                              <button type="submit">Delete Game & Rank</button>
-                            </form>
-                        <?php }
-                        } ?>
-                        <!-- New Game & Rank inputs -->
-                        <form method="post" action="config/add_game_rank.php?id=<?php echo $playerInfos['ID']?>">
-                          <label for="game_new">New Game:</label>
-                          <input type="text" name="addGame" id="addGame" required>
-                          <label for="rank_new">Game Rank:</label>
-                          <input type="text" name="addRank" id="addRank" required>
-                          <button type="submit">Add Game & Rank</button>
-                        </form>
-                        <!-- <button type="submit">SAVE PLAYER GAMES & RANKS</button> -->
-                      <!-- </form> -->
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </li>
-          <?php } ?>
-        </ul>
+    ?>
 
+  <!-- Affichage des joueurs -->
+  <div id="header">
+    <h1>Esports Profiles</h1>
+  </div>
 
-        <!-- Player Add -->
-        <div>
-          <div>
-            <section>
-              <h2>Add your own player!</h2>
-              <form action="config/add_player.php" method="POST" enctype="multipart/form-data">
-                <div>
-                  <?php foreach($dataPlayer[0] as $playerKey => $playerInfo){
-                    if (isImage($playerInfo)) { ?>
-                      <div>
-                          <div>
-                              <label for="<?php echo $playerKey ?>"><?php echo $playerKey ?></label>
-                              <input type="file" name="profile_picture">
-                          </div>
-                      </div>
-                  <?php } else {
-                        if ($playerKey == "ID") continue; ?>
-                        <div>
-                          <div>
-                            <label for="name"><?php echo $playerKey ?></label>
-                            <textarea id="textarea1" name="<?php echo $playerKey; ?>"></textarea>
-                          </div>
-                        </div>
-                  <?php } 
-                  } ?>
-                </div>
-                
-                <button type="submit">CREATE PLAYER</button>
-              </form>
-            </section>
-          </div>
+  <?php foreach($dataPlayer as $playerInfos){ ?>
+  <form method="POST" action="" enctype="multipart/form-data" onsubmit="copyContent();" >
+    <div id="update-player-info">
+      <h2><?php echo $playerInfos['player_name'] ?></h2>
+      <form method="post" action="config/delete_player.php">
+        <input type="hidden" name="delPlayer" value="<?php echo $playerInfos['ID']; ?>">
+        <button type="submit">Delete Player</button>
+      </form>
+      <label for="player-name">Player Name:</label>
+      <input type="text" id="player-name" name="player-name" required value="<?php echo $playerInfos['player_name'];?>">
+
+      <label for="player-bio">Player Bio:</label>
+      <textarea type="text" placeholder="Required Field" required
+        class="form-control" id="player-bio"
+        rows="3" cols="150" wrap="off"
+        style="overflow: hidden;"><?php echo $playerInfos['player_bio'];?>
+      </textarea>
+      <input type="hidden" id="hidden-player-bio" name="player-bio" value="<?php echo $playerInfos['player_bio'];?>"></input>
+
+      <label for="player-image">Player Image:</label>
+      <input type="file" id="player-image" name="player-image">
+
+      <label for="twitter">Twitter:</label>
+      <input type="text" id="twitter" name="twitter" value="<?php echo $playerInfos['twitter'];?>">
+
+      <label for="linkedin">LinkedIn:</label>
+      <input type="text" id="linkedin" name="linkedin" value="<?php echo $playerInfos['linked_In'];?>">
+    </div>
+
+    <div id="update-games">
+      <h3>Games</h3>
+      <div id="games-container">
+        <!-- Initial game input field -->
+        <div class="game-input">
+          <?php foreach($dataGames as $gamesInfos){ ?>
+            <label for="game1">Game:</label>
+            <?php if ($gamesInfos['ID_PLAYER'] == $playerInfos['ID']) { ?>
+            <input type="text" class="game" name="games['name'][]" required value="<?php echo $gamesInfos['name'];?>">
+            <input type="text" class="rank" name="games['rank'][]" value="<?php echo $gamesInfos['game_rank']; ?>">
+
+            <!-- Remove button is disabled when there is only one game -->
+            <button type="button" class="remove-btn" onclick="removeGame(this)" disabled>Remove</button>
+            <?php } 
+          } ?>
+          
         </div>
-  </body>
+      </div>
+      <button type="button" onclick="addGame()">Add Game</button>
+    </div>
+
+    <div id="update-skills">
+      <h3>Skills</h3>
+      <div id="skills-container">
+        <!-- Initial skill input field -->
+        <div class="skill-input">
+          <?php foreach($dataSkills as $skillInfos){ ?>
+          <label for="skill1">Skill 1:</label>
+          <?php if ($skillInfos['ID_PLAYER'] == $playerInfos['ID']) { ?>
+          <input type="text" class="skill" name="skills[]" required value="<?php echo $skillInfos['skill'];?>">
+          <!-- Remove button is disabled when there is only one skill -->
+          <button type="button" class="remove-btn" onclick="removeSkill(this)" disabled>Remove</button>
+          <?php } 
+          } ?>
+        </div>
+
+      </div>
+      <button type="button" onclick="addSkill()">Add Skill</button>
+    </div>
+    <button type="submit">Save Profile</button>
+  </form>
+  <?php } ?>
 
   <script>
     function addGame() {
       const gamesContainer = document.getElementById('games-container');
       const newGameInput = document.createElement('div');
       newGameInput.className = 'game-input';
-      const newGameNumber = gamesContainer.children.length + 1;
+      const newGameNumber = gamesContainer.children.length;
       newGameInput.innerHTML = `
-        <label for="game${newGameNumber}">Game ${newGameNumber}:</label>
+        <label for="game${newGameNumber}">Game:</label>
         <input type="text" class="game" name="games['name'][]" required>
         <input type="text" class="rank" name="games['rank'][]" >
         <button type="button" class="remove-btn" onclick="removeGame(this)">Remove</button>
@@ -313,26 +193,5 @@
     // Trigger copyContent when the textarea loses focus
     document.getElementById('player-bio').addEventListener('blur', copyContent);
   </script>
-  <script> 
-    function openBox(evt, category) {
-    // Declare all variables
-    var i, tabcontent, tablinks;
-
-    // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-
-    // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-
-    // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(category).style.display = "block";
-    evt.currentTarget.className += " active";
-    }
-  </script>
+</body>
 </html>
