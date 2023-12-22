@@ -239,7 +239,7 @@ label {
 }
 
 button {
-  background-color: #4caf50;
+  background-color: orange;
   color: white;
   padding: 10px 15px;
   border: none;
@@ -248,7 +248,7 @@ button {
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: rgb(184, 120, 1);
 }
 
 .remove-btn {
