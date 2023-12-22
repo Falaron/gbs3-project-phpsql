@@ -230,8 +230,9 @@ label {
 .update input[type="file"] {
   width: calc(100% - 22px);
   padding: 10px;
-  margin: 8px 0;
+  margin-bottom: 8px;
   box-sizing: border-box;
+  position: relative;
 }
 
 #player-bio {
@@ -269,7 +270,6 @@ a {
   max-width: 400px;
   width: calc(100% - 40px);
   margin: auto;
-  text-align: center;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
