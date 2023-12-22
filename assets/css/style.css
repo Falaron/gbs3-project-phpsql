@@ -43,6 +43,10 @@ body {
 
 }
 
+ul, li {
+  text-decoration: none !important;
+}
+
 *{
   margin: 0;
   padding: 0;
@@ -277,11 +281,19 @@ a {
   padding: 20px;
 }
 
-input {
+input, textarea {
   width: 100%;
   padding: 10px;
   margin: 8px 0;
   box-sizing: border-box;
+}
+
+.super-margin {
+  margin-bottom: 100px;
+}
+
+.no-deco {
+  text-decoration: none !important;
 }
 
 .update input.game {

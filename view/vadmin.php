@@ -34,9 +34,9 @@
 
       <div id="theManagers">
         <h2>MANAGERS</h2>
-        <ul>
+        <ul class="no-deco">
           <?php foreach($dataManager as $managerInfo){ ?>
-            <li>
+            <li class="super-margin">
               <div><h3><?php echo $managerInfo['username'] ?></h3></div>
               <div>
                 <form method="post" action="config/delete_manager.php">
@@ -100,7 +100,7 @@
         <h2 >PLAYERS</h2>
         <ul>
           <?php foreach($dataPlayer as $playerInfos) { ?>
-            <li>
+            <li class="super-margin">
               <div><h3 ><?php echo $playerInfos['player_name'] ?></h3></div>
                 <ul>
                   <li>
@@ -128,7 +128,7 @@
                                 <div>
                                     <div>
                                         <label for="<?php echo $playerKey ?>"><?php echo $playerKey ?></label>
-                                        <textarea id="textarea1" name="<?php echo $playerKey; ?>"><?php echo $playerInfo; ?></textarea>
+                                        <textarea id="textarea1" name="<?php echo $playerKey; ?>" id="addSkill"><?php echo $playerInfo; ?></textarea>
                                     </div>
                                 </div>
                             <?php }
