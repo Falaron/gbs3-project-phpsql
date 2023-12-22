@@ -17,11 +17,9 @@
     <h1>ADMIN PANEL</h1>
 
     <!-- Tab links -->
-    <div>
-      <div class="tab">
-        <button class="tablinks" onclick="openBox(event, 'MANAGERS')">MANAGERS</button>
-        <button class="tablinks" onclick="openBox(event, 'PLAYERS')">PLAYERS</button>
-      </div>
+    <div class="tab">
+      <button class="tablinks" onclick="openBox(event, 'MANAGERS')">MANAGERS</button>
+      <button class="tablinks" onclick="openBox(event, 'PLAYERS')">PLAYERS</button>
     </div>
 
     <!-- Manager Tab content -->
@@ -100,7 +98,7 @@
       ?>
       <div  id="PLAYER">
         <h2 >PLAYERS</h2>
-        <ul >
+        <ul>
           <?php foreach($dataPlayer as $playerInfos) { ?>
             <li>
               <div><h3 ><?php echo $playerInfos['player_name'] ?></h3></div>
@@ -193,13 +191,7 @@
               </div>
             </li>
           <?php } ?>
-        </ul>
-
-
-        <!-- Player Add -->
-        <div>
           <div>
-            <section>
               <h2>Add your own player!</h2>
               <form action="config/add_player.php" method="POST" enctype="multipart/form-data">
                 <div>
@@ -225,9 +217,9 @@
                 
                 <button type="submit">CREATE PLAYER</button>
               </form>
-            </section>
-          </div>
-        </div>
+            </div>
+        </ul>
+      </div>
   </body>
 
   <script>
