@@ -219,14 +219,7 @@
               </form>
             </div>
         </ul>
-
-
-        <!-- Player Add -->
-        <div>
-          <div>
-            
-          </div>
-        </div>
+      </div>
   </body>
 
   <script>
