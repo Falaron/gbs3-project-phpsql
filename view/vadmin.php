@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
   </head>
 
-  <body>
+  <body id="header">
      <!-- NAVBAR -->
      <?php require('assets/parts/navbar.php');
      require('config/image_detection.php')?>
@@ -17,7 +17,7 @@
     <h1>ADMIN PANEL</h1>
 
     <!-- Tab links -->
-    <div id="header">
+    <div>
       <div class="tab">
         <button class="tablinks" onclick="openBox(event, 'MANAGERS')">MANAGERS</button>
         <button class="tablinks" onclick="openBox(event, 'PLAYERS')">PLAYERS</button>
