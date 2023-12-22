@@ -11,4 +11,5 @@
   $pre->execute($dataBinded);
 
   header('Location:../admin.php');
+  exit();
 ?>

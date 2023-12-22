@@ -28,4 +28,5 @@
     $preInsert->execute($dataBindedInsert);
 
     header('Location:../admin.php');
+    exit();
 ?>

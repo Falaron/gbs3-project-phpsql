@@ -12,4 +12,5 @@ $preInsert = $pdo->prepare($sqlInsert);
 $preInsert->execute($dataBindedInsert);
 
 header('Location: ../admin.php');
+exit();
 ?>

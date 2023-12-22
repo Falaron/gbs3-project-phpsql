@@ -63,6 +63,7 @@ if ($token) {
             $preDeleteToken->execute();
 
             header("location: ../index.php");
+            exit();
         }
     } else {
         echo "Link expired or is invalid.";
